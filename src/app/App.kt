@@ -1,5 +1,6 @@
 package app
 
+import component.button
 import react.*
 import react.dom.*
 
@@ -9,6 +10,12 @@ class App : RComponent<RProps, RState>() {
         div {
             h2 {
                 +"Welcome to React with Kotlin"
+            }
+            button("-", true, true) {
+                console.log("oi")
+            }
+            button("+", false, true) {
+                console.log("oi")
             }
         }
     }
