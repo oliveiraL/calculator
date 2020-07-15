@@ -2,6 +2,7 @@ package component
 
 import kotlinx.css.*
 import kotlinx.html.js.onClickFunction
+import kotlinx.html.onClick
 import react.RBuilder
 import react.RProps
 import react.child
@@ -21,14 +22,11 @@ object ButtonStyle : StyleSheet("component-button", true) {
         button {
             border = "0"
             fontSize = 1.5.rem
-            margin = "0 1px 0 0"
+            marginRight = 1.px
             flexGrow = 1.0
             flexShrink = 0.0
             flexBasis = FlexBasis.auto
             padding = "0"
-            lastChild {
-                marginRight = 0.px
-            }
         }
     }
 
@@ -58,9 +56,8 @@ interface ButtonProps : RProps {
 }
 
 val ButtonComponent = functionalComponent<ButtonProps> { props ->
-    fun handleClick() {
-        props.clickHandler(props.name)
-    }
+    fun handleClick(): Unit = props.clickHandler(props.name)
+
 
     styledDiv {
         css {
@@ -73,13 +70,14 @@ val ButtonComponent = functionalComponent<ButtonProps> { props ->
                 onClickFunction = {
                     handleClick()
                 }
+
             }
             +props.name
         }
     }
 }
 
-fun RBuilder.button(name: String, orange: Boolean, wide: Boolean, clink: (String) -> Unit) =
+fun RBuilder.button(name: String, orange: Boolean = false, wide: Boolean = false, clink: (String) -> Unit) =
         child(ButtonComponent) {
             attrs.name = name
             attrs.orange = orange
