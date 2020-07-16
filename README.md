@@ -3,5 +3,6 @@ Projeto criado utilizando [Create React Kotlin App](https://github.com/JetBrains
 Para iniciar o projeto basta rodas os seguintes comandos.
 
 yarn install
+
 yarn start
 
