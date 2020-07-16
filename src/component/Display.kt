@@ -2,9 +2,7 @@ package component
 
 import kotlinx.css.*
 import react.RBuilder
-import react.RProps
 import react.dom.div
-import react.functionalComponent
 import styled.StyleSheet
 import styled.css
 import styled.styledDiv

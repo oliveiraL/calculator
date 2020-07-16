@@ -2,7 +2,6 @@ package component
 
 import kotlinx.css.*
 import kotlinx.html.js.onClickFunction
-import kotlinx.html.onClick
 import react.RBuilder
 import react.RProps
 import react.child
@@ -57,8 +56,6 @@ interface ButtonProps : RProps {
 
 val ButtonComponent = functionalComponent<ButtonProps> { props ->
     fun handleClick(): Unit = props.clickHandler(props.name)
-
-
     styledDiv {
         css {
             +if (props.orange) ButtonStyle.orange else ButtonStyle.orangeNot
